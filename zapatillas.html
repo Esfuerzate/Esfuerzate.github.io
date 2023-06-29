@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Esfuerzate - Zapatillas</title>
+    <style>
+        /* Estilos CSS existentes */
+        body {
+            background: rgb(181,29,29);
+            background: linear-gradient(90deg, rgba(181,29,29,1) 12%, rgba(21,182,162,1) 67%);
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilos del modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px auto;
+            max-width: 800px;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+
+        /* Estilos para el menú */
+        header {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        nav li {
+            margin: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+      <div class="button-container">
+        <button class="button" onclick="window.location.href = 'index.html';">Inicio</button>
+        <button class="button" onclick="window.location.href = 'carteras.html';">Carteras</button>
+        <button class="button" onclick="window.location.href = 'ropas.html';">Ropas</button>
+        <button class="button" onclick="window.location.href = 'sets.html';">Sets</button>
+    </div>
+    </header>
+    <h1>¡Descubre nuestra colección de Zapatillas!</h1>
+    <div class="image-gallery">
+        <img src="/Imagenes/zapatilla1.jpg" alt="Zapatilla 1" onclick="openModal('/Imagenes/zapatilla1.jpg')">
+        <img src="/Imagenes/zapatilla2.jpg" alt="Zapatilla 2" onclick="openModal('/Imagenes/zapatilla2.jpg')">
+        <!-- Agrega el resto de las imágenes con sus atributos onclick correspondientes -->
+        <!-- ... -->
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal" onclick="closeModal()">
+        <span class="close" onclick="event.stopPropagation(); closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        // Función para abrir el modal y mostrar la imagen
+        function openModal(imageUrl) {
+            var modal = document.getElementById('myModal');
+            var modalImage = document.getElementById('modalImage');
+
+            modal.style.display = 'flex';
+            modalImage.src = imageUrl;
+        }
+
+        // Función para cerrar el modal
+        function closeModal() {
+            var modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

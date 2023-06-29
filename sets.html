@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Esfuerzate - Sets</title>
+    <style>
+        body {
+            background: rgb(43,130,215);
+            background: radial-gradient(circle, rgba(43,130,215,1) 0%, rgba(58,15,168,0.938813025210084) 45%, rgba(0,212,255,1) 100%);
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        h1 {
+            color: white;
+        }
+        
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            max-width: 200%;
+            padding: 40px;
+        }
+        
+        .gallery img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            margin: 15px;
+            border-radius: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #000;
+        }
+
+        .button {
+            flex-grow: 1;
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            border: none;
+            background-color: transparent;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 15% auto;
+            width: 80%;
+            max-width: 700px;
+            max-height: 80%;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+    <script>
+        function openModal(imageSrc) {
+            var modal = document.querySelector('.modal');
+            var modalContent = document.querySelector('.modal-content');
+
+            var image = document.createElement('img');
+            image.src = imageSrc;
+
+            modalContent.innerHTML = '';
+            modalContent.appendChild(image);
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            var modal = document.querySelector('.modal');
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            var modal = document.querySelector('.modal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="button-container">
+            <button class="button" onclick="window.location.href = 'tenis.html';">Tenis</button>
+            <button class="button" onclick="window.location.href = 'zapatillas.html';">Zapatillas</button>
+            <button class="button" onclick="window.location.href = 'carteras.html';">Carteras</button>
+            <button class="button" onclick="window.location.href = 'ropas.html';">Ropas</button>
+        </div>
+    </header>
+
+    <h1>¡Descubre nuestra colección de sets!</h1>
+    <div class="gallery">
+        <img src="/Imagenes/set1.jpg" alt="Set 1" onclick="openModal('/Imagenes/set1.jpg')">
+        <img src="/Imagenes/set2.jpg" alt="Set 2" onclick="openModal('/Imagenes/set2.jpg')">
+        <img src="/Imagenes/set3.jpg" alt="Set 3" onclick="openModal('/Imagenes/set3.jpg')">
+        <img src="/Imagenes/set4.jpg" alt="Set 4" onclick="openModal('/Imagenes/set4.jpg')">
+        <img src="/Imagenes/set5.jpg" alt="Set 5" onclick="openModal('/Imagenes/set5.jpg')">
+        <img src="/Imagenes/set6.jpg" alt="Set 6" onclick="openModal('/Imagenes/set6.jpg')">
+        <img src="/Imagenes/set7.jpg" alt="Set 7" onclick="openModal('/Imagenes/set7.jpg')">
+        <img src="/Imagenes/set8.jpg" alt="Set 8" onclick="openModal('/Imagenes/set8.jpg')">
+        <img src="/Imagenes/set9.jpg" alt="Set 9" onclick="openModal('/Imagenes/set9.jpg')">
+        <img src="/Imagenes/set10.jpg" alt="Set 10" onclick="openModal('/Imagenes/set10.jpg')">
+        <img src="/Imagenes/set11.jpg" alt="Set 11" onclick="openModal('/Imagenes/set11.jpg')">
+        <img src="/Imagenes/set12.jpg" alt="Set 12" onclick="openModal('/Imagenes/set12.jpg')">
+        <img src="/Imagenes/set13.jpg" alt="Set 13" onclick="openModal('/Imagenes/set13.jpg')">
+        <img src="/Imagenes/set14.jpg" alt="Set 14" onclick="openModal('/Imagenes/set14.jpg')">
+        <img src="/Imagenes/set15.jpg" alt="Set 15" onclick="openModal('/Imagenes/set15.jpg')">
+        <img src="/Imagenes/set16.jpg" alt="Set 16" onclick="openModal('/Imagenes/set16.jpg')">
+        <img src="/Imagenes/set17.jpg" alt="Set 17" onclick="openModal('/Imagenes/set17.jpg')">
+        <img src="/Imagenes/set18.jpg" alt="Set 18" onclick="openModal('/Imagenes/set18.jpg')">
+        <img src="/Imagenes/set19.jpg" alt="Set 19" onclick="openModal('/Imagenes/set19.jpg')">
+        <img src="/Imagenes/set20.jpg" alt="Set 20" onclick="openModal('/Imagenes/set20.jpg')">
+    </div>
+
+    <div class="modal" onclick="closeModal()">
+        <div class="modal-content"></div>
+    </div>
+</body>
+</html>

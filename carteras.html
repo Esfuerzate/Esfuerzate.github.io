@@ -1,0 +1,125 @@
+<!-- carteras.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Esfuerzate - Carteras</title>
+    <style>
+        /* Estilos generales */
+        body {
+            background: rgb(43,130,215);
+            background: radial-gradient(circle, rgba(43,130,215,1) 0%, rgba(58,15,168,0.938813025210084) 45%, rgba(0,212,255,1) 100%);
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .button {
+            background-color: #3366cc;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .image-gallery img {
+            max-width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+        
+        /* Estilos de la ventana emergente */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow: auto;
+        }
+        
+        .modal-content {
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            margin: 10% auto;
+        }
+        
+        .modal-content img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var images = document.querySelectorAll('.image-gallery img');
+            var modal = document.querySelector('.modal');
+            var modalContent = document.querySelector('.modal-content');
+            
+            // Agregar el evento clic a cada imagen
+            images.forEach(function(image) {
+                image.addEventListener('click', function() {
+                    // Mostrar la ventana emergente y establecer la imagen ampliada
+                    modal.style.display = 'block';
+                    modalContent.innerHTML = '<img src="' + this.src + '" alt="' + this.alt + '">';
+                });
+            });
+            
+            // Cerrar la ventana emergente al hacer clic fuera de la imagen
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    modalContent.innerHTML = '';
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="button-container">
+            <button class="button" onclick="window.location.href = 'tenis.html';">Tenis</button>
+            <button class="button" onclick="window.location.href = 'zapatillas.html';">Zapatillas</button>
+            <button class="button" onclick="window.location.href = 'sets.html';">Sets</button>
+            <button class="button" onclick="window.location.href = 'ropas.html';">Ropas</button>
+        </div>
+    </header>
+    <h1>¡Descubre nuestra colección de carteras!</h1>
+
+    <div class="image-gallery">
+        <img src="/Imagenes/cartera1.jpg" alt="Cartera 1">
+        <img src="/Imagenes/cartera2.jpg" alt="Cartera 2">
+        <img src="/Imagenes/cartera3.jpg" alt="Cartera 3">
+        <img src="/Imagenes/cartera4.jpg" alt="Cartera 4">
+        <img src="/Imagenes/cartera5.jpg" alt="Cartera 5">
+        <img src="/Imagenes/cartera6.jpg" alt="Cartera 6">
+        <!-- Agrega más imágenes de carteras aquí -->
+    </div>
+
+    <div class="modal">
+        <div class="modal-content"></div>
+    </div>
+</body>
+</html>

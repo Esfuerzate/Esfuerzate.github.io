@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Esfuerzate - Ropas</title>
+    <style>
+        body {
+            background: rgb(43, 130, 215);
+            background: radial-gradient(
+                circle,
+                rgba(43, 130, 215, 1) 0%,
+                rgba(58, 15, 168, 0.938813025210084) 45%,
+                rgba(0, 212, 255, 1) 100%
+            );
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #000;
+        }
+
+        .button {
+            flex-grow: 1;
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            border: none;
+            background-color: transparent;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            max-width: 100%;
+        }
+
+        .gallery img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            margin: 15px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        /* Estilos para dispositivos móviles */
+        @media (max-width: 767px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .gallery img {
+                width: 150px;
+                height: 150px;
+                margin: 10px;
+            }
+        }
+
+        /* Estilos para el modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .modal-content img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 20px;
+        }
+    </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            var images = document.querySelectorAll('.gallery img');
+            var modal = document.querySelector('.modal');
+            var modalContent = document.querySelector('.modal-content');
+
+            function showModal(image) {
+                modalContent.innerHTML = '';
+                var img = document.createElement('img');
+                img.src = image.src;
+                img.alt = image.alt;
+                modalContent.appendChild(img);
+                modal.style.display = 'flex';
+            }
+
+            function hideModal(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            }
+
+            images.forEach(function(image) {
+                image.addEventListener('click', function() {
+                    showModal(this);
+                });
+            });
+
+            modal.addEventListener('click', hideModal);
+        });
+    </script>
+</head>
+<body>
+    <div class="button-container">
+        <button class="button" onclick="window.location.href = 'tenis.html';">Tenis</button>
+        <button class="button" onclick="window.location.href = 'zapatillas.html';">Zapatillas</button>
+        <button class="button" onclick="window.location.href = 'carteras.html';">Carteras</button>
+        <button class="button" onclick="window.location.href = 'sets.html';">Sets</button>
+    </div>    
+    <h1>¡Descubre nuestra colección de Ropa!</h1>
+    <div class="gallery">
+        <img src="/Imagenes/ropa1.jpg" alt="Ropa 1">
+        <img src="/Imagenes/ropa2.jpg" alt="Ropa 2">
+        <img src="/Imagenes/ropa3.jpg" alt="Ropa 3">
+        <img src="/Imagenes/ropa4.jpg" alt="Ropa 4">
+        <img src="/Imagenes/ropa5.jpg" alt="Ropa 5">
+        <img src="/Imagenes/ropa6.jpg" alt="Ropa 6">
+        <img src="/Imagenes/ropa7.jpg" alt="Ropa 7">
+    </div>
+
+    <div class="modal">
+        <div class="modal-content"></div>
+    </div>
+</body>
+</html>
